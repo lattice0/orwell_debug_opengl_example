@@ -56,29 +56,6 @@ CMAKE_BINARY_DIR = /home/lz/orwell_minimal_example/qt
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/home/lz/cmake-3.14.5-Linux-x86_64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/home/lz/cmake-3.14.5-Linux-x86_64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/home/lz/cmake-3.14.5-Linux-x86_64/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -90,39 +67,16 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/home/lz/cmake-3.14.5-Linux-x86_64/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
 
-.PHONY : list_install_components/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/home/lz/cmake-3.14.5-Linux-x86_64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/home/lz/cmake-3.14.5-Linux-x86_64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/home/lz/cmake-3.14.5-Linux-x86_64/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/home/lz/cmake-3.14.5-Linux-x86_64/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -183,84 +137,6 @@ orwell_autogen/fast:
 .PHONY : orwell_autogen/fast
 
 #=============================================================================
-# Target rules for targets named myRtspClient
-
-# Build rule for target.
-myRtspClient: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 myRtspClient
-.PHONY : myRtspClient
-
-# fast build rule for target.
-myRtspClient/fast:
-	$(MAKE) -f myrtsp/CMakeFiles/myRtspClient.dir/build.make myrtsp/CMakeFiles/myRtspClient.dir/build
-.PHONY : myRtspClient/fast
-
-#=============================================================================
-# Target rules for targets named myRtspClient_autogen
-
-# Build rule for target.
-myRtspClient_autogen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 myRtspClient_autogen
-.PHONY : myRtspClient_autogen
-
-# fast build rule for target.
-myRtspClient_autogen/fast:
-	$(MAKE) -f myrtsp/CMakeFiles/myRtspClient_autogen.dir/build.make myrtsp/CMakeFiles/myRtspClient_autogen.dir/build
-.PHONY : myRtspClient_autogen/fast
-
-#=============================================================================
-# Target rules for targets named jrtplib-shared
-
-# Build rule for target.
-jrtplib-shared: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 jrtplib-shared
-.PHONY : jrtplib-shared
-
-# fast build rule for target.
-jrtplib-shared/fast:
-	$(MAKE) -f myrtsp/third_party/JRTPLIB/src/CMakeFiles/jrtplib-shared.dir/build.make myrtsp/third_party/JRTPLIB/src/CMakeFiles/jrtplib-shared.dir/build
-.PHONY : jrtplib-shared/fast
-
-#=============================================================================
-# Target rules for targets named jrtplib-static
-
-# Build rule for target.
-jrtplib-static: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 jrtplib-static
-.PHONY : jrtplib-static
-
-# fast build rule for target.
-jrtplib-static/fast:
-	$(MAKE) -f myrtsp/third_party/JRTPLIB/src/CMakeFiles/jrtplib-static.dir/build.make myrtsp/third_party/JRTPLIB/src/CMakeFiles/jrtplib-static.dir/build
-.PHONY : jrtplib-static/fast
-
-#=============================================================================
-# Target rules for targets named jrtplib-shared_autogen
-
-# Build rule for target.
-jrtplib-shared_autogen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 jrtplib-shared_autogen
-.PHONY : jrtplib-shared_autogen
-
-# fast build rule for target.
-jrtplib-shared_autogen/fast:
-	$(MAKE) -f myrtsp/third_party/JRTPLIB/src/CMakeFiles/jrtplib-shared_autogen.dir/build.make myrtsp/third_party/JRTPLIB/src/CMakeFiles/jrtplib-shared_autogen.dir/build
-.PHONY : jrtplib-shared_autogen/fast
-
-#=============================================================================
-# Target rules for targets named jrtplib-static_autogen
-
-# Build rule for target.
-jrtplib-static_autogen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 jrtplib-static_autogen
-.PHONY : jrtplib-static_autogen
-
-# fast build rule for target.
-jrtplib-static_autogen/fast:
-	$(MAKE) -f myrtsp/third_party/JRTPLIB/src/CMakeFiles/jrtplib-static_autogen.dir/build.make myrtsp/third_party/JRTPLIB/src/CMakeFiles/jrtplib-static_autogen.dir/build
-.PHONY : jrtplib-static_autogen/fast
-
-#=============================================================================
 # Target rules for targets named watch
 
 # Build rule for target.
@@ -300,19 +176,6 @@ ReactNativeApp_autogen/fast:
 .PHONY : ReactNativeApp_autogen/fast
 
 #=============================================================================
-# Target rules for targets named copy-qmldir
-
-# Build rule for target.
-copy-qmldir: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 copy-qmldir
-.PHONY : copy-qmldir
-
-# fast build rule for target.
-copy-qmldir/fast:
-	$(MAKE) -f RND/ReactQt/runtime/src/CMakeFiles/copy-qmldir.dir/build.make RND/ReactQt/runtime/src/CMakeFiles/copy-qmldir.dir/build
-.PHONY : copy-qmldir/fast
-
-#=============================================================================
 # Target rules for targets named react-native
 
 # Build rule for target.
@@ -324,6 +187,19 @@ react-native: cmake_check_build_system
 react-native/fast:
 	$(MAKE) -f RND/ReactQt/runtime/src/CMakeFiles/react-native.dir/build.make RND/ReactQt/runtime/src/CMakeFiles/react-native.dir/build
 .PHONY : react-native/fast
+
+#=============================================================================
+# Target rules for targets named copy-qmldir
+
+# Build rule for target.
+copy-qmldir: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 copy-qmldir
+.PHONY : copy-qmldir
+
+# fast build rule for target.
+copy-qmldir/fast:
+	$(MAKE) -f RND/ReactQt/runtime/src/CMakeFiles/copy-qmldir.dir/build.make RND/ReactQt/runtime/src/CMakeFiles/copy-qmldir.dir/build
+.PHONY : copy-qmldir/fast
 
 #=============================================================================
 # Target rules for targets named react-native_autogen
@@ -339,43 +215,82 @@ react-native_autogen/fast:
 .PHONY : react-native_autogen/fast
 
 #=============================================================================
-# Target rules for targets named test-modal-props
+# Target rules for targets named test-array-reconciliation
 
 # Build rule for target.
-test-modal-props: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-modal-props
-.PHONY : test-modal-props
+test-array-reconciliation: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-array-reconciliation
+.PHONY : test-array-reconciliation
 
 # fast build rule for target.
-test-modal-props/fast:
-	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-modal-props.dir/build.make RND/ReactQt/tests/CMakeFiles/test-modal-props.dir/build
-.PHONY : test-modal-props/fast
+test-array-reconciliation/fast:
+	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-array-reconciliation.dir/build.make RND/ReactQt/tests/CMakeFiles/test-array-reconciliation.dir/build
+.PHONY : test-array-reconciliation/fast
 
 #=============================================================================
-# Target rules for targets named test-button-size
+# Target rules for targets named test-textinput-clear
 
 # Build rule for target.
-test-button-size: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-button-size
-.PHONY : test-button-size
+test-textinput-clear: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-textinput-clear
+.PHONY : test-textinput-clear
 
 # fast build rule for target.
-test-button-size/fast:
-	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-button-size.dir/build.make RND/ReactQt/tests/CMakeFiles/test-button-size.dir/build
-.PHONY : test-button-size/fast
+test-textinput-clear/fast:
+	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-textinput-clear.dir/build.make RND/ReactQt/tests/CMakeFiles/test-textinput-clear.dir/build
+.PHONY : test-textinput-clear/fast
 
 #=============================================================================
-# Target rules for targets named test-activityindicator-props
+# Target rules for targets named test-picker-props
 
 # Build rule for target.
-test-activityindicator-props: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-activityindicator-props
-.PHONY : test-activityindicator-props
+test-picker-props: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-picker-props
+.PHONY : test-picker-props
 
 # fast build rule for target.
-test-activityindicator-props/fast:
-	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-activityindicator-props.dir/build.make RND/ReactQt/tests/CMakeFiles/test-activityindicator-props.dir/build
-.PHONY : test-activityindicator-props/fast
+test-picker-props/fast:
+	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-picker-props.dir/build.make RND/ReactQt/tests/CMakeFiles/test-picker-props.dir/build
+.PHONY : test-picker-props/fast
+
+#=============================================================================
+# Target rules for targets named test-netexecutor-socket
+
+# Build rule for target.
+test-netexecutor-socket: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-netexecutor-socket
+.PHONY : test-netexecutor-socket
+
+# fast build rule for target.
+test-netexecutor-socket/fast:
+	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-netexecutor-socket.dir/build.make RND/ReactQt/tests/CMakeFiles/test-netexecutor-socket.dir/build
+.PHONY : test-netexecutor-socket/fast
+
+#=============================================================================
+# Target rules for targets named test-textinput-props
+
+# Build rule for target.
+test-textinput-props: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-textinput-props
+.PHONY : test-textinput-props
+
+# fast build rule for target.
+test-textinput-props/fast:
+	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-textinput-props.dir/build.make RND/ReactQt/tests/CMakeFiles/test-textinput-props.dir/build
+.PHONY : test-textinput-props/fast
+
+#=============================================================================
+# Target rules for targets named test-image-props
+
+# Build rule for target.
+test-image-props: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-image-props
+.PHONY : test-image-props
+
+# fast build rule for target.
+test-image-props/fast:
+	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-image-props.dir/build.make RND/ReactQt/tests/CMakeFiles/test-image-props.dir/build
+.PHONY : test-image-props/fast
 
 #=============================================================================
 # Target rules for targets named test-integration
@@ -404,69 +319,43 @@ test-slider-props/fast:
 .PHONY : test-slider-props/fast
 
 #=============================================================================
-# Target rules for targets named test-image-props
+# Target rules for targets named test-activityindicator-props
 
 # Build rule for target.
-test-image-props: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-image-props
-.PHONY : test-image-props
+test-activityindicator-props: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-activityindicator-props
+.PHONY : test-activityindicator-props
 
 # fast build rule for target.
-test-image-props/fast:
-	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-image-props.dir/build.make RND/ReactQt/tests/CMakeFiles/test-image-props.dir/build
-.PHONY : test-image-props/fast
+test-activityindicator-props/fast:
+	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-activityindicator-props.dir/build.make RND/ReactQt/tests/CMakeFiles/test-activityindicator-props.dir/build
+.PHONY : test-activityindicator-props/fast
 
 #=============================================================================
-# Target rules for targets named test-netexecutor-socket
+# Target rules for targets named test-button-size
 
 # Build rule for target.
-test-netexecutor-socket: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-netexecutor-socket
-.PHONY : test-netexecutor-socket
+test-button-size: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-button-size
+.PHONY : test-button-size
 
 # fast build rule for target.
-test-netexecutor-socket/fast:
-	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-netexecutor-socket.dir/build.make RND/ReactQt/tests/CMakeFiles/test-netexecutor-socket.dir/build
-.PHONY : test-netexecutor-socket/fast
+test-button-size/fast:
+	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-button-size.dir/build.make RND/ReactQt/tests/CMakeFiles/test-button-size.dir/build
+.PHONY : test-button-size/fast
 
 #=============================================================================
-# Target rules for targets named test-picker-props
+# Target rules for targets named test-modal-props
 
 # Build rule for target.
-test-picker-props: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-picker-props
-.PHONY : test-picker-props
+test-modal-props: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-modal-props
+.PHONY : test-modal-props
 
 # fast build rule for target.
-test-picker-props/fast:
-	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-picker-props.dir/build.make RND/ReactQt/tests/CMakeFiles/test-picker-props.dir/build
-.PHONY : test-picker-props/fast
-
-#=============================================================================
-# Target rules for targets named test-textinput-clear
-
-# Build rule for target.
-test-textinput-clear: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-textinput-clear
-.PHONY : test-textinput-clear
-
-# fast build rule for target.
-test-textinput-clear/fast:
-	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-textinput-clear.dir/build.make RND/ReactQt/tests/CMakeFiles/test-textinput-clear.dir/build
-.PHONY : test-textinput-clear/fast
-
-#=============================================================================
-# Target rules for targets named test-array-reconciliation
-
-# Build rule for target.
-test-array-reconciliation: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-array-reconciliation
-.PHONY : test-array-reconciliation
-
-# fast build rule for target.
-test-array-reconciliation/fast:
-	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-array-reconciliation.dir/build.make RND/ReactQt/tests/CMakeFiles/test-array-reconciliation.dir/build
-.PHONY : test-array-reconciliation/fast
+test-modal-props/fast:
+	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-modal-props.dir/build.make RND/ReactQt/tests/CMakeFiles/test-modal-props.dir/build
+.PHONY : test-modal-props/fast
 
 #=============================================================================
 # Target rules for targets named test-button-props
@@ -482,56 +371,82 @@ test-button-props/fast:
 .PHONY : test-button-props/fast
 
 #=============================================================================
-# Target rules for targets named test-textinput-props
+# Target rules for targets named test-array-reconciliation_autogen
 
 # Build rule for target.
-test-textinput-props: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-textinput-props
-.PHONY : test-textinput-props
+test-array-reconciliation_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-array-reconciliation_autogen
+.PHONY : test-array-reconciliation_autogen
 
 # fast build rule for target.
-test-textinput-props/fast:
-	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-textinput-props.dir/build.make RND/ReactQt/tests/CMakeFiles/test-textinput-props.dir/build
-.PHONY : test-textinput-props/fast
+test-array-reconciliation_autogen/fast:
+	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-array-reconciliation_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-array-reconciliation_autogen.dir/build
+.PHONY : test-array-reconciliation_autogen/fast
 
 #=============================================================================
-# Target rules for targets named test-modal-props_autogen
+# Target rules for targets named test-textinput-clear_autogen
 
 # Build rule for target.
-test-modal-props_autogen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-modal-props_autogen
-.PHONY : test-modal-props_autogen
+test-textinput-clear_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-textinput-clear_autogen
+.PHONY : test-textinput-clear_autogen
 
 # fast build rule for target.
-test-modal-props_autogen/fast:
-	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-modal-props_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-modal-props_autogen.dir/build
-.PHONY : test-modal-props_autogen/fast
+test-textinput-clear_autogen/fast:
+	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-textinput-clear_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-textinput-clear_autogen.dir/build
+.PHONY : test-textinput-clear_autogen/fast
 
 #=============================================================================
-# Target rules for targets named test-button-size_autogen
+# Target rules for targets named test-picker-props_autogen
 
 # Build rule for target.
-test-button-size_autogen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-button-size_autogen
-.PHONY : test-button-size_autogen
+test-picker-props_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-picker-props_autogen
+.PHONY : test-picker-props_autogen
 
 # fast build rule for target.
-test-button-size_autogen/fast:
-	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-button-size_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-button-size_autogen.dir/build
-.PHONY : test-button-size_autogen/fast
+test-picker-props_autogen/fast:
+	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-picker-props_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-picker-props_autogen.dir/build
+.PHONY : test-picker-props_autogen/fast
 
 #=============================================================================
-# Target rules for targets named test-activityindicator-props_autogen
+# Target rules for targets named test-netexecutor-socket_autogen
 
 # Build rule for target.
-test-activityindicator-props_autogen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-activityindicator-props_autogen
-.PHONY : test-activityindicator-props_autogen
+test-netexecutor-socket_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-netexecutor-socket_autogen
+.PHONY : test-netexecutor-socket_autogen
 
 # fast build rule for target.
-test-activityindicator-props_autogen/fast:
-	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-activityindicator-props_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-activityindicator-props_autogen.dir/build
-.PHONY : test-activityindicator-props_autogen/fast
+test-netexecutor-socket_autogen/fast:
+	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-netexecutor-socket_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-netexecutor-socket_autogen.dir/build
+.PHONY : test-netexecutor-socket_autogen/fast
+
+#=============================================================================
+# Target rules for targets named test-textinput-props_autogen
+
+# Build rule for target.
+test-textinput-props_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-textinput-props_autogen
+.PHONY : test-textinput-props_autogen
+
+# fast build rule for target.
+test-textinput-props_autogen/fast:
+	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-textinput-props_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-textinput-props_autogen.dir/build
+.PHONY : test-textinput-props_autogen/fast
+
+#=============================================================================
+# Target rules for targets named test-image-props_autogen
+
+# Build rule for target.
+test-image-props_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-image-props_autogen
+.PHONY : test-image-props_autogen
+
+# fast build rule for target.
+test-image-props_autogen/fast:
+	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-image-props_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-image-props_autogen.dir/build
+.PHONY : test-image-props_autogen/fast
 
 #=============================================================================
 # Target rules for targets named test-integration_autogen
@@ -560,69 +475,43 @@ test-slider-props_autogen/fast:
 .PHONY : test-slider-props_autogen/fast
 
 #=============================================================================
-# Target rules for targets named test-image-props_autogen
+# Target rules for targets named test-activityindicator-props_autogen
 
 # Build rule for target.
-test-image-props_autogen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-image-props_autogen
-.PHONY : test-image-props_autogen
+test-activityindicator-props_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-activityindicator-props_autogen
+.PHONY : test-activityindicator-props_autogen
 
 # fast build rule for target.
-test-image-props_autogen/fast:
-	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-image-props_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-image-props_autogen.dir/build
-.PHONY : test-image-props_autogen/fast
+test-activityindicator-props_autogen/fast:
+	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-activityindicator-props_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-activityindicator-props_autogen.dir/build
+.PHONY : test-activityindicator-props_autogen/fast
 
 #=============================================================================
-# Target rules for targets named test-netexecutor-socket_autogen
+# Target rules for targets named test-button-size_autogen
 
 # Build rule for target.
-test-netexecutor-socket_autogen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-netexecutor-socket_autogen
-.PHONY : test-netexecutor-socket_autogen
+test-button-size_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-button-size_autogen
+.PHONY : test-button-size_autogen
 
 # fast build rule for target.
-test-netexecutor-socket_autogen/fast:
-	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-netexecutor-socket_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-netexecutor-socket_autogen.dir/build
-.PHONY : test-netexecutor-socket_autogen/fast
+test-button-size_autogen/fast:
+	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-button-size_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-button-size_autogen.dir/build
+.PHONY : test-button-size_autogen/fast
 
 #=============================================================================
-# Target rules for targets named test-picker-props_autogen
+# Target rules for targets named test-modal-props_autogen
 
 # Build rule for target.
-test-picker-props_autogen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-picker-props_autogen
-.PHONY : test-picker-props_autogen
+test-modal-props_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-modal-props_autogen
+.PHONY : test-modal-props_autogen
 
 # fast build rule for target.
-test-picker-props_autogen/fast:
-	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-picker-props_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-picker-props_autogen.dir/build
-.PHONY : test-picker-props_autogen/fast
-
-#=============================================================================
-# Target rules for targets named test-textinput-clear_autogen
-
-# Build rule for target.
-test-textinput-clear_autogen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-textinput-clear_autogen
-.PHONY : test-textinput-clear_autogen
-
-# fast build rule for target.
-test-textinput-clear_autogen/fast:
-	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-textinput-clear_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-textinput-clear_autogen.dir/build
-.PHONY : test-textinput-clear_autogen/fast
-
-#=============================================================================
-# Target rules for targets named test-array-reconciliation_autogen
-
-# Build rule for target.
-test-array-reconciliation_autogen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-array-reconciliation_autogen
-.PHONY : test-array-reconciliation_autogen
-
-# fast build rule for target.
-test-array-reconciliation_autogen/fast:
-	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-array-reconciliation_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-array-reconciliation_autogen.dir/build
-.PHONY : test-array-reconciliation_autogen/fast
+test-modal-props_autogen/fast:
+	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-modal-props_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-modal-props_autogen.dir/build
+.PHONY : test-modal-props_autogen/fast
 
 #=============================================================================
 # Target rules for targets named test-button-props_autogen
@@ -636,19 +525,6 @@ test-button-props_autogen: cmake_check_build_system
 test-button-props_autogen/fast:
 	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-button-props_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-button-props_autogen.dir/build
 .PHONY : test-button-props_autogen/fast
-
-#=============================================================================
-# Target rules for targets named test-textinput-props_autogen
-
-# Build rule for target.
-test-textinput-props_autogen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-textinput-props_autogen
-.PHONY : test-textinput-props_autogen
-
-# fast build rule for target.
-test-textinput-props_autogen/fast:
-	$(MAKE) -f RND/ReactQt/tests/CMakeFiles/test-textinput-props_autogen.dir/build.make RND/ReactQt/tests/CMakeFiles/test-textinput-props_autogen.dir/build
-.PHONY : test-textinput-props_autogen/fast
 
 #=============================================================================
 # Target rules for targets named copy-2048
@@ -816,50 +692,40 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/strip"
-	@echo "... edit_cache"
-	@echo "... orwell"
 	@echo "... rebuild_cache"
-	@echo "... list_install_components"
-	@echo "... install/local"
-	@echo "... install"
+	@echo "... orwell"
+	@echo "... edit_cache"
 	@echo "... orwell_autogen"
-	@echo "... myRtspClient"
-	@echo "... myRtspClient_autogen"
-	@echo "... jrtplib-shared"
-	@echo "... jrtplib-static"
-	@echo "... jrtplib-shared_autogen"
-	@echo "... jrtplib-static_autogen"
 	@echo "... watch"
 	@echo "... ReactNativeApp"
 	@echo "... ReactNativeApp_autogen"
-	@echo "... copy-qmldir"
 	@echo "... react-native"
+	@echo "... copy-qmldir"
 	@echo "... react-native_autogen"
-	@echo "... test-modal-props"
-	@echo "... test-button-size"
-	@echo "... test-activityindicator-props"
+	@echo "... test-array-reconciliation"
+	@echo "... test-textinput-clear"
+	@echo "... test-picker-props"
+	@echo "... test-netexecutor-socket"
+	@echo "... test-textinput-props"
+	@echo "... test-image-props"
 	@echo "... test-integration"
 	@echo "... test-slider-props"
-	@echo "... test-image-props"
-	@echo "... test-netexecutor-socket"
-	@echo "... test-picker-props"
-	@echo "... test-textinput-clear"
-	@echo "... test-array-reconciliation"
+	@echo "... test-activityindicator-props"
+	@echo "... test-button-size"
+	@echo "... test-modal-props"
 	@echo "... test-button-props"
-	@echo "... test-textinput-props"
-	@echo "... test-modal-props_autogen"
-	@echo "... test-button-size_autogen"
-	@echo "... test-activityindicator-props_autogen"
+	@echo "... test-array-reconciliation_autogen"
+	@echo "... test-textinput-clear_autogen"
+	@echo "... test-picker-props_autogen"
+	@echo "... test-netexecutor-socket_autogen"
+	@echo "... test-textinput-props_autogen"
+	@echo "... test-image-props_autogen"
 	@echo "... test-integration_autogen"
 	@echo "... test-slider-props_autogen"
-	@echo "... test-image-props_autogen"
-	@echo "... test-netexecutor-socket_autogen"
-	@echo "... test-picker-props_autogen"
-	@echo "... test-textinput-clear_autogen"
-	@echo "... test-array-reconciliation_autogen"
+	@echo "... test-activityindicator-props_autogen"
+	@echo "... test-button-size_autogen"
+	@echo "... test-modal-props_autogen"
 	@echo "... test-button-props_autogen"
-	@echo "... test-textinput-props_autogen"
 	@echo "... copy-2048"
 	@echo "... copy-Movies"
 	@echo "... copy-UIExplorer"

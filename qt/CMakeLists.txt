@@ -16,8 +16,6 @@ find_package(Boost COMPONENTS thread system REQUIRED) #todo: erase system, not n
 find_package(Qt5 COMPONENTS Qml Quick Gui Widgets Multimedia MultimediaWidgets) #OpenGLWidgets) 
 
 set(REACT_NATIVE_REACTQT_DIR "../react-native-desktop/ReactQt/runtime/src/") 
-add_subdirectory(../myRtspClient myrtsp)
-include_directories(../myRtspClient/myRtspClient/include)
 include_directories(..)
 include_directories(${REACT_NATIVE_REACTQT_DIR})
 include_directories(${REACT_NATIVE_REACTQT_DIR}/layout)
@@ -34,7 +32,7 @@ add_dependencies(orwell react-native)
 #TODO: decide either qtquick or qt widgets libs
 target_link_libraries( orwell PRIVATE ${AVCODEC_LIBRARY} ${AVUTIL_LIBRARY} ${SWSCALE_LIBRARY} 
 		       Qt5::Widgets Qt5::Multimedia Qt5::MultimediaWidgets Boost::thread Qt5::Qml Qt5::Quick 
-		       myRtspClient pthread react-native)
+		       pthread react-native)
 
 #RUN WITH:
 #/home/lz/cmake-3.14.0-rc2-Linux-x86_64/bin/cmake -DCMAKE_PREFIX_PATH=/home/lz/Qt5.11.2/5.11.2/gcc_64 -DCMAKE_BUILD_TYPE=Debug .

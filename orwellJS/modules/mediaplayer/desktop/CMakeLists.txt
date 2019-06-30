@@ -25,9 +25,6 @@ set(REACT_NATIVE_DESKTOP_EXTERNAL_MODULES_LIBS ${REACT_NATIVE_DESKTOP_EXTERNAL_M
 
 set(REACT_NATIVE_DESKTOP_EXTERNAL_MODULES_INCLUDE_DIRS ${REACT_NATIVE_DESKTOP_EXTERNAL_MODULES_INCLUDE_DIRS}
                                               ${ORWELL_DIR}
-                                              ${ORWELL_DIR}/myRtspClient/myRtspClient/include
-                                              ${ORWELL_DIR}/myRtspClient/
-                                              ${ORWELL_DIR}/jrtplib
                                               ${REACT_QT_DIR}
                                               PARENT_SCOPE)
 

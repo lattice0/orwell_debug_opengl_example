@@ -1,2 +1,0 @@
-# Configure for cmake here
-add_definitions("-g")
