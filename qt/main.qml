@@ -11,7 +11,6 @@ Grid {
     OpenGlVideoQtQuick2 {
         width: 640
         height: 360
-        uri: "rtsp://admin:19929394@192.168.1.198:10554/tcp/av0_0"
     }
     
 }
