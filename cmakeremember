@@ -1,0 +1,1 @@
+cmake -DQt5_DIR=/home/lz/Qt5.11.2 .

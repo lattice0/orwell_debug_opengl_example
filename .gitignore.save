@@ -1,0 +1,6 @@
+.cmake
+jrtplib/src/CMakeFiles/*
+CMakeFiles/*
+*.o
+myRtspClient/third_party/JTHREAD/build/src/CMakeFiles
+myRtspClient/third_party/JRTPLIB/build/src/CMakeFiles/jrtplib-static.dir/rtppacket.cpp.o

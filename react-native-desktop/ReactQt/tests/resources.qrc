@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>TestModuleTest.qml</file>
+        <file>TestImageProps.qml</file>
+        <file>TestActivityIndicatorProps.qml</file>
+        <file>TestButtonProps.qml</file>
+        <file>TestSliderProps.qml</file>
+        <file>TestButtonSize.qml</file>
+        <file>TestModalProps.qml</file>
+        <file>TestTextInputProps.qml</file>
+        <file>TestPickerProps.qml</file>
+        <file>TestTextInputClear.qml</file>
+        <file>TestArrayReconciliation.qml</file>
+    </qresource>
+</RCC>
